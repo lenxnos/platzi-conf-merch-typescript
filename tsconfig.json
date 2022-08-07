@@ -10,9 +10,9 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true,
+    "noEmit": false,
+    "noEmitOnError": true,
     "jsx": "react"
   },
   "include": ["src"],
-  "exclude": ["./webpack.config.js"]
 }
