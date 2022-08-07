@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { Link } from 'react-router-dom';
+
 import '../styles/components/Information.css';
 
 function Information() {
@@ -7,7 +9,7 @@ function Information() {
     <div className="Information">
       <div className="Information-content">
         <div className="Information-head">
-          <h2>Contact Information:</h2>
+          <h2>Información de contacto:</h2>
         </div>
         <div className="Information-form">
           <form>
@@ -80,12 +82,14 @@ function Information() {
           </form>
         </div>
         <div className="Information-buttons">
-          <div className="Information-back">Go Back</div>
-          <div className="Information-next">Pay</div>
+          <div className="Information-back">Regresar</div>
+          <div className="Information-next">
+            <Link to="/checkout/payment">Pagar</Link>
+          </div>
         </div>
       </div>
       <div className="Information-sidebar">
-        <h3>Order Summary:</h3>
+        <h3>Resumen de la orden:</h3>
         <div className="Information-item">
           <div className="Information-element">
             <h4>Item name</h4>
