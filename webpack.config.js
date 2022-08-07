@@ -1,7 +1,6 @@
 const path = require('path');
-const htmlWebpackPlugin = require('html-webpack-plugin');
-const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 
 module.exports = {
@@ -33,6 +32,16 @@ module.exports = {
       {
         test: /\.(ts|tsx)$/,
         loader: 'ts-loader'
+      },
+      {
+        test: /\.s(a|c)ss$/,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+          },
+          'css-loader',
+          'sass-loader'
+        ]
       }
     ]
   },
@@ -40,6 +49,10 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './public/index.html',
       filename: 'index.html'
+    }),
+    new MiniCssExtractPlugin({
+      filename: 'assets/[name].css',
+      chunkFilename: '[id].css'
     })
   ],
   mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
