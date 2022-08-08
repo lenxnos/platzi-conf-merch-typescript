@@ -1,9 +1,4 @@
-import { Product } from './models';
-
-interface IInitialState {
-  products: Product[];
-  cart: [];
-}
+import { IInitialState } from './models';
 
 const initialData: IInitialState = {
   cart: [],
