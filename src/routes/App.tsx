@@ -9,21 +9,24 @@ import {
   Payment,
   Success,
 } from '../containers';
+import { AppProvider } from '../context';
 
 const App: FC = () => {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="/checkout" element={<Checkout />} />
-          <Route path="/checkout/information" element={<Information />} />
-          <Route path="/checkout/payment" element={<Payment />} />
-          <Route path="/checkout/success" element={<Success />} />
-          <Route path="*" element={<NotFound />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <AppProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path="/checkout" element={<Checkout />} />
+            <Route path="/checkout/information" element={<Information />} />
+            <Route path="/checkout/payment" element={<Payment />} />
+            <Route path="/checkout/success" element={<Success />} />
+            <Route path="*" element={<NotFound />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </AppProvider>
   );
 };
 

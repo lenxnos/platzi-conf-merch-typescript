@@ -3,9 +3,10 @@ import { Product as IProduct } from '../models';
 
 interface Props {
   product: IProduct;
+  handleAddToCart: (product: IProduct) => () => void;
 }
 
-const Product: FC<Props> = ({ product }) => {
+const Product: FC<Props> = ({ product, handleAddToCart }) => {
   return (
     <div className="Products-item">
       <img src={product.image} alt={product.title} />
@@ -16,7 +17,9 @@ const Product: FC<Props> = ({ product }) => {
         </h2>
         <p>{product.description}</p>
       </div>
-      <button type="button">Comprar</button>
+      <button type="button" onClick={handleAddToCart(product)}>
+        Comprar
+      </button>
     </div>
   );
 };
