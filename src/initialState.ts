@@ -1,6 +1,7 @@
 import { IInitialState } from './models';
 
 const initialData: IInitialState = {
+  buyer: [],
   cart: [],
   products: [
     {

@@ -1,6 +1,9 @@
 import { Product } from './products';
+import { Buyer } from './buyer';
+import { Cart } from './cart';
 
 export interface IInitialState {
   products: Product[];
-  cart: any[];
+  cart: Cart[];
+  buyer: Buyer[];
 }

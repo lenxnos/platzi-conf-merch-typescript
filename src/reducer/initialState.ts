@@ -23,6 +23,12 @@ const reducerInitialState = (
         cart: state.cart.filter((item) => item.id !== id),
       };
     }
+    case 'ADD_TO_BUYER': {
+      return {
+        ...state,
+        buyer: [...state.buyer, action.payload],
+      };
+    }
     default:
       return state;
   }

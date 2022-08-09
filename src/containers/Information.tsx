@@ -1,10 +1,35 @@
-import React from 'react';
+import React, { useRef, useContext } from 'react';
 
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { AppContext } from '../context';
 
 import '../styles/components/Information.css';
 
 function Information() {
+  const {
+    state: { cart },
+    addToBuyer,
+  } = useContext(AppContext);
+  const form = useRef(null);
+  const navigate = useNavigate();
+
+  const handleSubmit = () => {
+    const formData = new FormData(form.current!);
+    const buyer = {
+      name: formData.get('name') as string,
+      email: formData.get('email') as string,
+      address: formData.get('address') as string,
+      apto: formData.get('apto') as string,
+      city: formData.get('city') as string,
+      country: formData.get('country') as string,
+      state: formData.get('state') as string,
+      cp: formData.get('cp') as string,
+      phone: formData.get('phone') as string,
+    };
+    addToBuyer(buyer);
+    navigate('/checkout/payment');
+  };
+
   return (
     <div className="Information">
       <div className="Information-content">
@@ -12,7 +37,7 @@ function Information() {
           <h2>Información de contacto:</h2>
         </div>
         <div className="Information-form">
-          <form>
+          <form ref={form}>
             <label htmlFor="name">
               Nombre completo
               <input
@@ -82,20 +107,26 @@ function Information() {
           </form>
         </div>
         <div className="Information-buttons">
-          <div className="Information-back">Regresar</div>
+          <div className="Information-back">
+            <Link to="/checkout">Regresar</Link>
+          </div>
           <div className="Information-next">
-            <Link to="/checkout/payment">Pagar</Link>
+            <button type="button" onClick={handleSubmit}>
+              Pagar
+            </button>
           </div>
         </div>
       </div>
       <div className="Information-sidebar">
         <h3>Resumen de la orden:</h3>
-        <div className="Information-item">
-          <div className="Information-element">
-            <h4>Item name</h4>
-            <span>$10</span>
+        {cart.map((product) => (
+          <div key={product.id} className="Information-item">
+            <div className="Information-element">
+              <h4>{product.title}</h4>
+              <span>${product.price}</span>
+            </div>
           </div>
-        </div>
+        ))}
       </div>
     </div>
   );

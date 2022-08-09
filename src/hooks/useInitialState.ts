@@ -1,7 +1,7 @@
 import { useReducer } from 'react';
 import { initialState as reducerInitialState } from '../reducer';
 import initialData from '../initialState';
-import { Product } from '../models';
+import { Buyer, Product } from '../models';
 
 const useInitialState = () => {
   const [state, dispatch] = useReducer(reducerInitialState, initialData);
@@ -12,7 +12,10 @@ const useInitialState = () => {
   const removeFromCart = (product: Product) =>
     dispatch({ type: 'REMOVE_FROM_CART', payload: product });
 
-  return { state, addToCart, removeFromCart };
+  const addToBuyer = (buyer: Buyer) =>
+    dispatch({ type: 'ADD_TO_BUYER', payload: buyer });
+
+  return { state, addToCart, removeFromCart, addToBuyer };
 };
 
 export default useInitialState;
