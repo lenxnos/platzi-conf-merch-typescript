@@ -6,3 +6,11 @@ node_modules
 
 # Dist
 dist
+
+# misc
+.env
+
+npm-debug.log*
+package-lock.json
+yarn-debug.log*
+yarn-error.log*
