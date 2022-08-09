@@ -17,7 +17,7 @@ const reducerInitialState = (
       };
     }
     case 'REMOVE_FROM_CART': {
-      const { id } = action.payload as { id: number };
+      const { id } = action.payload as { id: string };
       return {
         ...state,
         cart: state.cart.filter((item) => item.id !== id),
@@ -27,6 +27,12 @@ const reducerInitialState = (
       return {
         ...state,
         buyer: [...state.buyer, action.payload],
+      };
+    }
+    case 'ADD_NEW_ORDER': {
+      return {
+        ...state,
+        orders: [...state.orders, action.payload],
       };
     }
     default:

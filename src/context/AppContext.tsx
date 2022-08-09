@@ -7,6 +7,7 @@ interface IAppContext {
   addToCart: (product: Product) => void;
   removeFromCart: (product: Product) => void;
   addToBuyer: (buyer: Buyer) => void;
+  addNewOrder: (order: any) => void;
 }
 
 export const AppContext = createContext({} as IAppContext);

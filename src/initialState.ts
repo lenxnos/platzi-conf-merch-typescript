@@ -3,6 +3,7 @@ import { IInitialState } from './models';
 const initialData: IInitialState = {
   buyer: [],
   cart: [],
+  orders: [],
   products: [
     {
       id: '1',

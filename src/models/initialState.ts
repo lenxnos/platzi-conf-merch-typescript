@@ -6,4 +6,5 @@ export interface IInitialState {
   products: Product[];
   cart: Cart[];
   buyer: Buyer[];
+  orders: any[];
 }

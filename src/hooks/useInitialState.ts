@@ -15,7 +15,10 @@ const useInitialState = () => {
   const addToBuyer = (buyer: Buyer) =>
     dispatch({ type: 'ADD_TO_BUYER', payload: buyer });
 
-  return { state, addToCart, removeFromCart, addToBuyer };
+  const addNewOrder = (order: any) =>
+    dispatch({ type: 'ADD_NEW_ORDER', payload: order });
+
+  return { state, addToCart, removeFromCart, addToBuyer, addNewOrder };
 };
 
 export default useInitialState;
