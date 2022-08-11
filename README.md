@@ -12,10 +12,10 @@ The payment method integrate is paypal, add a client id on .env file
 PAYPAL_PAYMENT_CLIENT_ID=CLIENT-ID
 ```
 
-## Google Map
+## GEOAPIFY API
 
-The map is integrated with Google Maps API, so add an API key in the .env file
+The map is integrated with react-leaflet, but for the location request, the GEOAPIFY API is used and it needs to add an API key, after obtaining the API key remember to add it in the .env file
 
 ```bash
-  GOOGLE_MAPS_API=API-KEY
+  GEOAPIFY_API_TOKEN=API-KEY
 ```
