@@ -5,6 +5,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Plazti Conf Merch</title>
+  <link rel="icon" href="./icon.png" type="image/png">
+  <link rel="manifest" href="./manifest.json">
   <link
     rel="stylesheet"
     href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
@@ -12,9 +14,26 @@
     crossorigin=""
   />
   <script src="https://kit.fontawesome.com/473d269aa9.js" crossorigin="anonymous"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function () {
+        navigator.serviceWorker.register('service-worker.js').then(function (registration) {
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        }, function (err) {
+          console.log('ServiceWorker registration failed: ', err);
+        }).catch(function (err) {
+          console.log(err)
+        });
+      });
+    } else {
+      console.log('service worker is not supported');
+    }
+  </script>
+  
   
 </head>
 <body>
   <div id="root"></div>
+  <noscript>This app needs javascript to work</noscript>
 </body>
 </html>

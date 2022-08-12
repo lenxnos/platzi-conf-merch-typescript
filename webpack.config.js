@@ -4,6 +4,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const webpack = require('webpack');
 const DotEnv = require('dotenv-webpack');
 const RobotstxtPlugin = require("robotstxt-webpack-plugin");
+const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: './src/index.tsx',
@@ -63,6 +64,13 @@ module.exports = {
       'process.env.GEOAPIFY_API_TOKEN': JSON.stringify(process.env.GEOAPIFY_API_TOKEN),
     }),
     new RobotstxtPlugin({}),
+    new CopyPlugin({
+      patterns: [
+        { from: 'public/manifest.json', to: '' },
+        { from: 'public/service-worker.js', to: '' },
+        { from: 'public/icon.png', to: 'assets' },
+      ],
+    }),
   ],
   mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
   devServer: {
