@@ -7,6 +7,14 @@ function Home() {
     <>
       <Seo>
         <title>Platzi Conf Merch - Productos</title>
+        <meta
+          name="keywords"
+          content="E-commerce,HTML, CSS, JavaScript, React"
+        />
+        <meta
+          name="description"
+          content="Todos los productos en un solo lugar"
+        />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@lenxnos" />
         <meta name="twitter:creator" content="@lenxnos" />

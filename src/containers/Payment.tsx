@@ -37,6 +37,14 @@ const Payment: FC = () => {
     <>
       <Seo>
         <title>Platzi Conf Merch - Payment</title>
+        <meta
+          name="keywords"
+          content="E-commerce,HTML, CSS, JavaScript, React"
+        />
+        <meta
+          name="description"
+          content="Todos los productos en un solo lugar"
+        />
       </Seo>
       <div className="Payment">
         <div className="Payment-content">

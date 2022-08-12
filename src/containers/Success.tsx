@@ -20,6 +20,14 @@ const Success: FC = () => {
     <>
       <Seo>
         <title>Platzi Conf Merch - Success</title>
+        <meta
+          name="keywords"
+          content="E-commerce,HTML, CSS, JavaScript, React"
+        />
+        <meta
+          name="description"
+          content="Todos los productos en un solo lugar"
+        />
       </Seo>
       <div className="Success">
         <div className="Success-content">
