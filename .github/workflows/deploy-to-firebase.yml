@@ -12,6 +12,9 @@ jobs:
         run: npm install
       - name: Build
         run: npm run build
+        env:
+          REACT_APP_CLIENT_ID: ${{ secrets.REACT_APP_CLIENT_ID }}
+          GEOAPIFY_API_TOKEN: ${{ secrets.GEOAPIFY_API_TOKEN }}
       - name: Archive Production Artifacts
         uses: actions/upload-artifact@master
         with:
