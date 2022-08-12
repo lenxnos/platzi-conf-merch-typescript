@@ -1,5 +1,6 @@
 import React, { FC, useContext } from 'react';
 import { Link } from 'react-router-dom';
+import Seo from '../components/Seo';
 import { AppContext } from '../context';
 import { Product } from '../models';
 import '../styles/components/Checkout.css';
@@ -21,34 +22,39 @@ const Checkout: FC = () => {
   };
 
   return (
-    <div className="Checkout">
-      <div className="Checkout-content">
-        <h3>Lista de pedidos</h3>
-        {cart.length > 0 ? (
-          cart.map((product: Product) => (
-            <div className="Checkout-item" key={product.id}>
-              <div className="Checkout-element">
-                <h4>{product.title}</h4>
-                <span>${product.price}</span>
+    <>
+      <Seo>
+        <title>Platzi Conf Merch - Checkout</title>
+      </Seo>
+      <div className="Checkout">
+        <div className="Checkout-content">
+          <h3>Lista de pedidos</h3>
+          {cart.length > 0 ? (
+            cart.map((product: Product) => (
+              <div className="Checkout-item" key={product.id}>
+                <div className="Checkout-element">
+                  <h4>{product.title}</h4>
+                  <span>${product.price}</span>
+                </div>
+                <button type="button" onClick={handleRemoveFromCart(product)}>
+                  <i className="fas fa-trash-alt" />
+                </button>
               </div>
-              <button type="button" onClick={handleRemoveFromCart(product)}>
-                <i className="fas fa-trash-alt" />
-              </button>
-            </div>
-          ))
-        ) : (
-          <h3>No hay productos en el carrito</h3>
+            ))
+          ) : (
+            <h3>No hay productos en el carrito</h3>
+          )}
+        </div>
+        {cart.length > 0 && (
+          <div className="Checkout-sidebar">
+            <h3>{`Precio Total: $ ${handleSumTotal()}`}</h3>
+            <Link to="/checkout/information">
+              <button type="button">Continuar pedido</button>
+            </Link>
+          </div>
         )}
       </div>
-      {cart.length > 0 && (
-        <div className="Checkout-sidebar">
-          <h3>{`Precio Total: $ ${handleSumTotal()}`}</h3>
-          <Link to="/checkout/information">
-            <button type="button">Continuar pedido</button>
-          </Link>
-        </div>
-      )}
-    </div>
+    </>
   );
 };
 

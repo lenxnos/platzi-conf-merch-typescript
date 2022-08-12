@@ -1,5 +1,6 @@
 import React, { FC, useContext } from 'react';
 import Map from '../components/Map';
+import Seo from '../components/Seo';
 import { AppContext } from '../context';
 import { useLocationAddress } from '../hooks';
 
@@ -16,15 +17,20 @@ const Success: FC = () => {
   const location = [address.lat, address.lng] as [number, number];
 
   return (
-    <div className="Success">
-      <div className="Success-content">
-        <h2>{`${buyer?.name} Gracias por tu compra`}</h2>
-        <span>Tu pedido llegara en 3 días a tu dirección:</span>
-        <div className="Success-map">
-          <Map location={location} />
+    <>
+      <Seo>
+        <title>Platzi Conf Merch - Success</title>
+      </Seo>
+      <div className="Success">
+        <div className="Success-content">
+          <h2>{`${buyer?.name} Gracias por tu compra`}</h2>
+          <span>Tu pedido llegara en 3 días a tu dirección:</span>
+          <div className="Success-map">
+            <Map location={location} />
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
