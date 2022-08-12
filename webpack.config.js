@@ -58,10 +58,8 @@ module.exports = {
     }),
     new DotEnv(),
     new webpack.DefinePlugin({
-      'process.env': {
-				REACT_APP_CLIENT_ID: JSON.stringify(process.env.REACT_APP_CLIENT_ID),
-				API_KEY: JSON.stringify(process.env.API_KEY),
-			},
+      'process.env.PAYPAL_PAYMENT_CLIENT_ID': JSON.stringify(process.env.PAYPAL_PAYMENT_CLIENT_ID),
+      'process.env.GEOAPIFY_API_TOKEN': JSON.stringify(process.env.GEOAPIFY_API_TOKEN),
     }),
   ],
   mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
