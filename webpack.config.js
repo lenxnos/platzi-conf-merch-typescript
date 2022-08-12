@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const webpack = require('webpack');
 const DotEnv = require('dotenv-webpack');
+const RobotstxtPlugin = require("robotstxt-webpack-plugin");
 
 module.exports = {
   entry: './src/index.tsx',
@@ -61,6 +62,7 @@ module.exports = {
       'process.env.PAYPAL_PAYMENT_CLIENT_ID': JSON.stringify(process.env.PAYPAL_PAYMENT_CLIENT_ID),
       'process.env.GEOAPIFY_API_TOKEN': JSON.stringify(process.env.GEOAPIFY_API_TOKEN),
     }),
+    new RobotstxtPlugin({}),
   ],
   mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
   devServer: {
